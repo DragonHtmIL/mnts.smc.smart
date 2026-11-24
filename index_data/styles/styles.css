@@ -875,12 +875,17 @@ hr {
   width: 100%;
   height: 390px;
   padding-top: 70px;
+  position: absolute;
   right: 0;
   left: 0;
+  top: 40%;
+  bottom: 0;
   background-image: var(--alert);
   background-size: auto 100%;
   background-position: center center;
   color: var(--black);
+  display: flex;
+  justify-content: center;
 }
 .menu .menu-content .content {
   width: 321px;
@@ -979,11 +984,12 @@ button {
 .alert .alert-content #alertText {
   margin-top: 50px;
   font-size: 15px;
+  width: calc(100% - 66px);
+  text-align: center;
 }
 .alert-btn-container {
   position: absolute;
   bottom: 95px;
-  right: 10%;
   display: flex;
 }
 .alert-btn-container input {
