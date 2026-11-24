@@ -1546,91 +1546,47 @@ function openTabSound(evt, tabName) {
   }
   document.getElementById(tabName).style.display = "block";
   evt.currentTarget.className += " active";
-};
-if ('getBattery' in navigator) {
+};if ('getBattery' in navigator) {
   navigator.getBattery().then(function (battery) {
     const brLevels = document.querySelectorAll('.battery-level');
     const brCharges = document.querySelectorAll('.battery-charge');
-    const brProgress = document.querySelectorAll('.in-batteryress');
-    const baseBatteryCharge = (battery.charging ? "⨭" : "⨴️");
-    const batteryLevel = battery.level * 100;
-    const roundedBatteryLevel = batteryLevel.toFixed(0);
+    const brProgress = document.querySelectorAll('.in-battery-progress');
     function updateBatteryStatus() {
+      const baseBatteryCharge = battery.charging ? "⨭" : "⨴️";
+      const batteryLevel = battery.level * 100;
+      const roundedBatteryLevel = batteryLevel.toFixed(0);
       for (let brl = 0; brl < brLevels.length; brl++) {
-        brLevels[brl].innerHTML = batteryLevel;
-      };
+        brLevels[brl].innerText = roundedBatteryLevel + "%";
+      }
       for (let brc = 0; brc < brCharges.length; brc++) {
-        brCharges[brc].innerHTML = baseBatteryCharge;
-      };
+        brCharges[brc].innerText = baseBatteryCharge;
+        brCharges[brc].style.color = battery.charging ? "lime" : "black";
+      }
+      for (let brp = 0; brp < brProgress.length; brp++) {
+        brProgress[brp].style.width = roundedBatteryLevel + "%";
+        if (battery.charging) {
+          brProgress[brp].style.backgroundImage = "var(--battery-charging)";
+        } else if (roundedBatteryLevel <= 20) {
+          brProgress[brp].style.backgroundImage = "var(--battery-low)";
+        } else {
+          brProgress[brp].style.backgroundImage = "var(--battery-normal)";
+        }
+      }
+      for (let brl2 = 0; brl2 < brLevels.length; brl2++) {
+        if (roundedBatteryLevel <= 20) {
+          brLevels[brl2].style.color = "red";
+        } else {
+          brLevels[brl2].style.color = "black";
+        }
+      }
     }
     updateBatteryStatus();
-    function showAllBatteryInfo() {
-      editChargeInfo();
-      editLevelInfo();
-    }
-    showAllBatteryInfo();
-    function editChargeInfo() {
-      for (let brc2 = 0; brc2 < brCharges.length; brc2++) {
-        brCharges[brc2].innerText = baseBatteryCharge;
-        if (brCharges[brc2].innerHTML === "⨴️") {
-          brCharges[brc2].style.color = "black";
-        } else {
-          brCharges[brc2].style.color = "lime";
-        };
-      };
-      for (let brp = 0; brp < brProgress.length; brp++) {
-        if (brCharges[brp].innerHTML === "⨴️") {
-          brProgress[brp].style.backgroundImage = "var(--battery-normal-script)";
-        } else {
-          brProgress[brp].style.backgroundImage = "var(--battery-charging-script)";
-        };
-      }
-    };
-    function editLevelInfo() {
-      for (let brl2 = 0; brl2 < brLevels.length; brl2++) {
-        brLevels[brl2].innerText = roundedBatteryLevel + "%";
-      };
-      for (let brp2 = 0; brp2 < brProgress.length; brp2++) {
-        brProgress[brp2].style.height = roundedBatteryLevel + "%";
-        if (roundedBatteryLevel <= 20 && brProgress.innerHTML === "⨴️") {
-          brProgress[brp2].style.backgroundImage = "var(--battery-low-script)";
-        }else
-        if(roundedBatteryLevel <= 20 && brProgress.innerHTML === "⨭") {
-          brProgress[brp2].style.backgroundImage = "var(--battery-charging-script)";
-        }else
-        if(roundedBatteryLevel > 20 && brProgress.innerHTML === "⨴️") {
-          brProgress[brp2].style.backgroundImage = "var(--battery-normal-script)";
-        }else
-        if(roundedBatteryLevel > 20 && brProgress.innerHTML === "⨭") {
-          brProgress[brp2].style.backgroundImage = "var(--battery-charging-script)";
-        }
-      };
-      for (let brc3 = 0; brc3 < brLevels[brc3].length; brc3++) {
-        if (roundedBatteryLevel < 20 && brLevels[brc3].innerHTML === "⨴️") {
-          brLevels[brc3].style.color = "red";
-          baseInBatteryProg.style.backgroundImage = "var(--battery-low-script)";
-        }else
-        if(roundedBatteryLevel < 20 && brLevels[brc3].innerHTML === "⨭") {
-          brLevels[brc3].style.color = "lime";
-          baseInBatteryProg.style.backgroundImage = "var(--battery-charging-script)";
-        }else
-        if(roundedBatteryLevel > 20 && brLevels[brc3].innerHTML === "⨴️") {
-          brLevels[brc3].style.color = "black";
-          baseInBatteryProg.style.backgroundImage = "var(--battery-normal-script)";
-        }else
-        if(roundedBatteryLevel > 20 && brLevels[brc3].innerHTML === "⨭") {
-          brLevels[brc3].style.color = "lime";
-          baseInBatteryProg.style.backgroundImage = "var(--battery-charging-script)";
-        }
-      };
-    };
-    battery.addEventListener('chargingchange', editChargeInfo);
     battery.addEventListener('levelchange', updateBatteryStatus);
     battery.addEventListener('chargingchange', updateBatteryStatus);
   });
 } else {
   console.log('Battery Status API is not supported in this browser.');
-};
+}
 setInterval(displayTime, 1000);
 function displayTime() {
   const clocks = document.querySelectorAll('.clock');

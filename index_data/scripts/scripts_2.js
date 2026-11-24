@@ -323,6 +323,18 @@ function autoMusicCheckLoadNew() {
     return false;
   }
 };
+function autoMusicTypeLoadNew() {
+  if(localStorage.getItem("musicbg") === null) {
+    localStorage.setItem("musicbg", "sauMusic");
+    window.location.reload();
+  }else
+  if(localStorage.getItem("musicbg") === "") {
+    localStorage.setItem("musicbg", "sauMusic");
+    window.location.reload();
+  }else{
+    return false;
+  }
+};
 function autoSfxProgLoadNew() {
   if(localStorage.getItem("sfxvolumedata") === null) {
     localStorage.setItem("sfxvolumedata", "1.0");

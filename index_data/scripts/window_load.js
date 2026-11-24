@@ -14,6 +14,7 @@ window.addEventListener('load', function() {
   autoBoardsLoadNew();
   autoLanguageLoadNew();
   autoMusicCheckLoadNew();
+  autoMusicTypeLoadNew();
   autoSfxProgLoadNew();
   autoMusicProgLoadNew();
   autoMovementLoadNew();
