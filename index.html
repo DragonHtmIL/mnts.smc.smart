@@ -1200,7 +1200,7 @@
             </div>
             <div class="range-content">
               <label class="label-range" for="sfxvolume" id="sfxLang">...</label>
-              <input type="range" id="sfxvolume" oninput="sFxVolume();" value="0" min="0" max="1" step="0.1">
+              <input type="range" id="sfxvolume" oninput="sFxVolume();" value="0" min="0" max="1" step="0.01">
             </div>
             <div class="checkbox-content">
               <input type="checkbox" id="ambientChecker" onchange="playActiveMoveSound();saveAmbientChecker();ambientSound();selectionSound();">
@@ -1211,7 +1211,7 @@
                 <input type="checkbox" id="checkMusicMute" onchange="musicBackground();baseMusicVolum();selectionSound();">
                 <label class="label-checkbox" for="checkMusicMute" id="musicLang">...</label>
               </div>
-              <input type="range" id="musicvolume" oninput="musicVolume();" value="0" min="0" max="1" step="0.1">
+              <input type="range" id="musicvolume" oninput="musicVolume();" value="0" min="0" max="1" step="0.01">
             </div>
             <hr>
             <div class="categores stylescontent" id="scrollToIdElementMusicLang">...</div>
@@ -1332,7 +1332,7 @@
             <div class="battery-charge"></div>
           </div>
           <div class="battery-progress">
-            <div class="in-battery-progress"></div>
+            <div class="in-battery-progress" style="width: 0%;"></div>
           </div>
         </div>
         <input class="menuscroller" type="range" name="conOne" id="conOne" min="0" max="100" value="0" style="display:block;">
@@ -1391,7 +1391,7 @@
           <div class="battery-charge"></div>
         </div>
         <div class="battery-progress">
-          <div class="in-battery-progress"></div>
+          <div class="in-battery-progress" style="width: 0%;"></div>
         </div>
       </div>
       <div class="alert-content">
