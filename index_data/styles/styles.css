@@ -90,7 +90,7 @@ hr {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: var(--black-a);
+  background-color: var(--black-c);
 }
 .play-board .food {
   background-size: 100% 100%;
@@ -1966,7 +1966,7 @@ input[type="range"]::-webkit-slider-thumb {
 .profile-content {
   position: relative;
   width: 100%;
-  height: auto;
+  height: 70px;
   z-index: 3;
   background-image: var(--wrapper);
   background-size: cover;
@@ -1984,6 +1984,8 @@ input[type="range"]::-webkit-slider-thumb {
   min-width: 50px;
   height: 100%;
   text-align: center;
+  display: flex;
+  align-items: center;
 }
 #leagueImage {
   left: 23px;

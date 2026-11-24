@@ -2,6 +2,7 @@
   --black: #000000ff;
   --black-a: #000000aa;
   --black-b: #00000011;
+  --black-c: #00000055;
   --white: #ffffffff;
   --white-a: #ffffffaa;
   --shadow: #3457dc33;
@@ -291,9 +292,9 @@
   --league-6-star: url('https://raw.githubusercontent.com/DragonHtmIL/mnts.smc.org/main/index_data/textures/league/league_6_super_star.png');
   --league-7-star: url('https://raw.githubusercontent.com/DragonHtmIL/mnts.smc.org/main/index_data/textures/league/league_7_legendary_star.png');
   --league-8-star: url('https://raw.githubusercontent.com/DragonHtmIL/mnts.smc.org/main/index_data/textures/league/league_8_alpha_knight_star.png');
-  --battery-normal-script: url('../textures/system/battery_normal.png');
-  --battery-low-script: url('../textures/system/battery_low.png');
-  --battery-charging-script: url('../textures/system/battery_charging.png');
+  --battery-normal: url('index_data/textures/system/battery_normal.png');
+  --battery-low: url('index_data/textures/system/battery_low.png');
+  --battery-charging: url('index_data/textures/system/battery_charging.png');
   --letter-a: url('https://raw.githubusercontent.com/DragonHtmIL/mnts.smc.org/main/index_data/textures/snake/a.png');
   --letter-A: url('https://raw.githubusercontent.com/DragonHtmIL/mnts.smc.org/main/index_data/textures/snake/As.png');
   --letter-b: url('https://raw.githubusercontent.com/DragonHtmIL/mnts.smc.org/main/index_data/textures/snake/b.png');
