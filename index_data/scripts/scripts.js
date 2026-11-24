@@ -1520,7 +1520,8 @@ function alertDeleteProgress() {
   defaultClickSound();
 };
 function openTab(evt, tabName) {
-  if(document.getElementById("devToolsContainer").style.display === "block") return;
+  const moreBts = document.getElementById("allTools");
+  if(moreBts.style.display === "none") moreBts.style.display = "flex";
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("content");
   for (i = 0; i < tabcontent.length; i++) {

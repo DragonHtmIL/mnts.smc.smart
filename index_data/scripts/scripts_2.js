@@ -828,7 +828,6 @@ function loadingAnimationLoader() {
   }
 };
 function openRange(evt, rangeName) {
-  if(document.getElementById("devToolsContainer").style.display === "block") return;
   var i, menuscroller;
   menuscroller = document.getElementsByClassName("menuscroller");
   for (i = 0; i < menuscroller.length; i++) {
