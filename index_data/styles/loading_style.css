@@ -1,0 +1,180 @@
+:root {
+  --loading-bg: #ffffffff;
+  --white: #ffffffff;
+  --black: #000000ff;
+  --black-a: #000000aa;
+  --black-b: #00000011;
+  --loading-logo: url('../textures/gui/loading_yi_logo_2x.png');
+  --loading-prog: url('../textures/gui/loading_progress.png');
+  --loading-classic: url('../animations/classic.gif');
+  --load-bg-screen: url('../textures/loading_screens/0.png');
+}
+.loading-content-window {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  background-color: var(--black);
+  z-index: 9;
+}
+.container {
+  height: calc(100% - 20px);
+  width: calc(100% - 20px);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--loading-bg);
+  background-image: var(--load-bg-screen);
+  background-position: center;
+  background-size: auto 100%;
+  border-radius: 100%;
+  overflow: hidden;
+  z-index: 2;
+  margin: 10px;
+}
+.loading {
+  text-align: center;
+  width: 300px;
+  margin: -132px auto 0 auto;
+}
+.loading h2 {
+  font-weight: normal;
+  font-size: 20px;
+  padding: 0;
+  margin: -34px -20px 0 0;
+}
+.loading-img {
+  width: 132px;
+  height: 132px;
+  position: relative;
+  margin: 0 auto;
+}
+.text-logo {
+  width: 60px;
+  height: 60px;
+  background: var(--loading-logo) no-repeat;
+  -webkit-background-size: 100% 100%;
+  background-size: 100% 100%;
+  position: fixed;
+  bottom: 64px;
+}
+.animate-img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin:center center;
+  -webkit-transform-origin:center center;	
+}
+.classicload {
+  width: 157px;
+  height: 100px;
+  background: var(--loading-classic) no-repeat;
+  -webkit-background-size: 100% 100%;
+  background-size: 100% 100%;
+  filter: invert(100%);
+}
+.loading-images {
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: flex-start;
+}
+.loading-images img {
+  width: 10px;
+  height: 10px;
+  opacity: 0;
+}
+#heighter {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-image: var(--loading-prog);
+  background-size: 100% 100%;
+  background-position: left center;
+  width: 100%;
+  transition: 0s;
+  -o-transition: 0s;
+  -moz-transition: 0s;
+  -webkit-transition: 0s;
+}
+.heighter {
+  height: 5px;
+  direction: ltr;
+  width: calc(100% - 20px);
+  margin: 0 10px;
+}
+#heighternum {
+  text-align: center;
+  font-size: 17px;
+  direction: ltr;
+}
+.loading-footer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 0px;
+  background-color: var(--black-a);
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loading-texts {
+  display: flex;
+  justify-content: space-between;
+  color: var(--white);
+  padding: 0px 10px;
+  margin-top: 100px;
+  width: 100%;
+}
+#gameLogo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: var(--white);
+  display: flex;
+  overflow: hidden;
+}
+#gameLogo img {
+  display: block;
+  margin: auto;
+  height: 100%;
+  margin-left: -64%;
+}
+#gameLogo div {
+  position: absolute;
+  bottom: 60px;
+  margin: auto;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  font-size: 25px;
+}
+#gameLogo div::after {
+  content: 'ArthurVesta';
+}
