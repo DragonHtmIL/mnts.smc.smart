@@ -2,7 +2,7 @@
 var GHPATH2 = 'https://raw.githubusercontent.com/DragonHtmIL/mnts.smc.org';
 var GHPATH = '/mnts.smc.smart';
 var APP_PREFIX = 'gppwa_';
-var VERSION = "smart-2.0.0-24112026";
+var VERSION = "smart-2.0.0-25112026";
 var URLS = [
   `${GHPATH}/index_data/animations/classic.gif`,
   `${GHPATH2}/index_data/animations/gacha/gacha_vid_press.gif`,

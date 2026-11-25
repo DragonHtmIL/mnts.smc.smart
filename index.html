@@ -423,16 +423,6 @@
               <input type="button" id="deleteprogbutton" onclick="alertDeleteProgress();" value="...">
               <span class="mini-modal-opener" onclick="openWIDmModalDelProg();defaultClickSound();"></span>
             </div>
-            <div class="con-continer-for-help">
-              <input type="button" id="saveProgDataViafile" onclick="saveProgressViaFile();" value="...">
-              <span class="mini-modal-opener" onclick="openWIDmModalSavDat();defaultClickSound();"></span>
-            </div>
-            <form action="javascript:loadDataSaved();" method="post">
-              <label for="dataLocalUpload" id="uploadDataLang">...</label><br>
-              <input type="file" name="saveProgDataViafile" id="dataLocalUpload" style="display:none;" required>
-              <input type="button" id="subButton" onclick="document.getElementById('dataLocalUpload').click();" value="...">
-              <input type="submit" id="dataRunner" value="...">
-            </form>
             <br>
             <div class="checkbox-content" id="administratorToolsContent">
               <input type="checkbox" id="administratorTools" onclick="selectionSound();" onchange="checkSettingsChanges();">
@@ -801,13 +791,18 @@
             </div>
             <hr>
             <div class="categores stylescontent">...</div>
+            <div id="snakeColorLang">...</div>
+            <input type="color" id="snakeColor" oninput="snakeDecoloring();cancelSound();" onchange="selectionSound();" value="#ddaaff">
             <div id="snakePreview">
               <div id="snakeLatter"></div>
             </div>
-            <div id="snakeColorLang">...</div>
-            <input type="color" id="snakeColor" oninput="snakeDecoloring();cancelSound();" onchange="selectionSound();" value="#ddaaff">
             <div id="keypad">
-              <div class="keypad numpad">
+              <div class="keypad spclpad">
+                <div class="keyOboard" id="keyShift" onclick="shiftLetters();selectionSound();">↑</div>
+                <div class="keyOboard" id="keyClear" onclick="letterLoad();cancelSound();keysRegistering();">⨱</div>
+              </div>
+              <hr>
+              <div class="keypad numpad" style="border-bottom: solid 1px var(--black-a);">
                 <div class="keyOboard" id="key1" onclick="letterLoad1();defaultClickSound();keysRegistering();">1</div>
                 <div class="keyOboard" id="key2" onclick="letterLoad2();defaultClickSound();keysRegistering();">2</div>
                 <div class="keyOboard" id="key3" onclick="letterLoad3();defaultClickSound();keysRegistering();">3</div>
@@ -819,7 +814,7 @@
                 <div class="keyOboard" id="key9" onclick="letterLoad9();defaultClickSound();keysRegistering();">9</div>
                 <div class="keyOboard" id="key0" onclick="letterLoad0();defaultClickSound();keysRegistering();">0</div>
               </div>
-              <div class="keypad wordpad">
+              <div class="keypad wordpad" style="border-top: solid 1px var(--black-a);">
                 <div class="keyOboard" id="keya" onclick="letterLoadAa();defaultClickSound();keysRegistering();">a</div>
                 <div class="keyOboard" id="keyb" onclick="letterLoadBb();defaultClickSound();keysRegistering();">b</div>
                 <div class="keyOboard" id="keyc" onclick="letterLoadCc();defaultClickSound();keysRegistering();">c</div>
@@ -846,8 +841,6 @@
                 <div class="keyOboard" id="keyx" onclick="letterLoadXx();defaultClickSound();keysRegistering();">x</div>
                 <div class="keyOboard" id="keyy" onclick="letterLoadYy();defaultClickSound();keysRegistering();">y</div>
                 <div class="keyOboard" id="keyz" onclick="letterLoadZz();defaultClickSound();keysRegistering();">z</div>
-                <div class="keyOboard" id="keyShift" onclick="shiftLetters();selectionSound();">↑</div>
-                <div class="keyOboard" id="keyClear" onclick="letterLoad();cancelSound();keysRegistering();">⨱</div>
               </div>
             </div>
           </div>
@@ -1380,6 +1373,10 @@
       <img src="index_data/textures/system/game_logo.jpg" alt="Game Logo">
       <div></div>
     </div>
+    <div class="aud-acess" id="audAcess" style="display: none;">
+      <h2 id="audAcessText">...</h2>
+      <input type="button" id="audAcessRight" value="">
+    </div>
     <div class="alert" id="alert" style="display: none;">
       <div class="device-info-indicator">
         <div class="date-time-indicator">
@@ -1433,7 +1430,7 @@
     <div id="updateModal" class="modal" style="display: none;">
       <div class="modal-content">
       <div id="updateTitleLang">...</div>
-        <button class="reset-button" id="closeUpdate" onclick="markUpdateReaded();closeModalSound();"></button>
+        <button class="reset-button" id="closeUpdate" onclick="markUpdateDate();closeModalSound();"></button>
         <div class="in-modal-content" id="updateNoticeContent"></div>
       </div>
     </div>
@@ -1444,9 +1441,6 @@
         <div class="in-modal-content" id="howToPlayContent">
           <div id="ifMobileLang">...</div><br>
           <div id="txtAhow">...</div>
-          <hr>
-          <div id="ifOthersLang">...</div><br>
-          <div id="txtBhow">...</div>
         </div>
       </div>
     </div>
@@ -2600,7 +2594,6 @@
     <script src="index_data/scripts/window_click.js"></script>
     <script src="index_data/scripts/window_load.js"></script>
     <script src="index_data/scripts/window_error.js"></script>
-    <div id="scriptContainer"></div>
     <script src="sw_loader.js"></script>
   </body>
 </html>
