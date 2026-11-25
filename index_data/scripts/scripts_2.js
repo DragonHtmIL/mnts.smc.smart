@@ -1044,48 +1044,6 @@ function openWIDmModalDelProg() {
     title.innerHTML = "מחיקת התקדמות";
     content.innerHTML = "פונקציה זו תמחק את כל סוגי האוכל שנאספו מהלאי, גם ציון שנישמר וציון גבוה. <br>";
     content.innerHTML += "[✓]תחשבו על זה הרבה, אם אתם רוצים להתחיל משחק חדש מ- 0.";
-    title.style.textAlign = "right";
-    content.style.direction = "rtl";
-    content.style.textAlign = "right";
-  }
-};
-function openWIDmModalSavDat() {
-  var modal = document.getElementById("miniModal");
-  var title = document.getElementById("mmTitle");
-  var content = document.getElementById("mmBottom");
-  modal.style.display = "flex";
-  if(localStorage.getItem("lang") === "en") {
-    title.innerHTML = "Data from saved data";
-    content.innerHTML = "This give you save all progress in .js file and load your progress again. <br>";
-    content.innerHTML += "also you can use it for copy data to other devices if you don't want start game from 0 again. <br>";
-    content.innerHTML += " [1]Save data. <br>";
-    content.innerHTML += " [2]Press/touch on ''Upload(.js)'': Upload the file. <br>";
-    content.innerHTML += " [3]Press/touch on ''Load'': Be load all content inside the file. <br>";
-    content.innerHTML += "[✓]You also can cheat with this file. <br>";
-    content.innerHTML += "[!]Take a risk if you get bugs from changing content in file.";
-  }else
-  if(localStorage.getItem("lang") === "ru") {
-    title.innerHTML = "Данные из сохраненных данных";
-    title.style.fontSize = "15px";
-    title.style.marginTop = "3px";
-    content.innerHTML = "Это дает вам сохранить весь прогресс в файле .js и загрузит ваш прогресс. <br>";
-    content.innerHTML += "Кроме того, вы можете использовать его для копирования данных для другие устройства, если вы не хотите начать игру с 0 снова. <br>";
-    content.innerHTML += " [1]Сохраните данные. <br>";
-    content.innerHTML += " [2]Нажмите/коснитесь на «Загрузить(.js)»: загрузит файл. <br>";
-    content.innerHTML += " [3]Нажмите/коснитесь «Загрузить»: загрузите все содержимое внутри файла. <br>";
-    content.innerHTML += "[✓]Вы также можете жульничать с этим файлом. <br>";
-    content.innerHTML += "[!]Возьмите риск, если вы получите ошибки от изменениe контент в файле.";
-  }else
-  if(localStorage.getItem("lang") === "he") {
-    title.innerHTML = "נתונים מנתונים שנשמרו";
-    content.innerHTML = "זה נותן לכם לשמור את כל ההתקדמות בקובץ .js ולטעון שוב את ההתקדמות שלכם. <br>";
-    content.innerHTML += "כמו כן אתם יכולים להשתמש בו בכדי להעתיק נתונים למכשירים אחרים אם אינכם רוצים להתחיל לשחק מהתחלה מ- 0 שוב. <br>";
-    content.innerHTML += " [1]שימורו נתונים. <br>";
-    content.innerHTML += " [2]לחצו/געו ב- '' העלאה (.js) '': העלו את הקובץ. <br>";
-    content.innerHTML += " [3]לחצו/געו ב- '' טעינה '': כל התוכן בתוך הקובץ יטען. <br>";
-    content.innerHTML += "[✓]אתם יכולים גם לרמות עם הקובץ הזה. <br>";
-    content.innerHTML += "[!]קחו סיכון אם אתם מקבלים באגים משינוי תוכן בקובץ.";
-    title.style.textAlign = "right";
     content.style.direction = "rtl";
     content.style.textAlign = "right";
   }

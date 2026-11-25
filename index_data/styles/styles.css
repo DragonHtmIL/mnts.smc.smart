@@ -814,7 +814,8 @@ hr {
 }
 .modal,
 .menu,
-.alert {
+.alert,
+.aud-acess {
   position: fixed;
   top: 0;
   left: 0;
@@ -834,6 +835,29 @@ hr {
 }
 .alert {
   z-index: 4;
+}
+.aud-acess {
+  background-image: var(--acess-bg);
+  background-size: cover;
+  background-position: center;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 12px;
+}
+.aud-acess input[type="button"] {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 100%;
+  z-index: 1;
+  background-color: transparent;
+  border-top: solid 12px #00ffff;
+  border-left: solid 12px #00ffffaa;
+  border-bottom: solid 12px #00ffff55;
+  border-right: solid 12px #00ffff11;
+	animation: spining 5s ease-in-out infinite;
+	-webkit-animation: spining 5s ease-in-out infinite;
 }
 .modal .modal-content,
 .modal .modal-content-pages,
@@ -2055,8 +2079,7 @@ input[type="range"]::-webkit-slider-thumb {
   right: 0;
   width: calc(100% - 130px);
 }
-#deleteprogbutton,
-#saveProgDataViafile {
+#deleteprogbutton {
   background-image: var(--button-long);
   background-size: auto 100%;
   background-position: center center;
@@ -2067,8 +2090,7 @@ input[type="range"]::-webkit-slider-thumb {
   height: 47px;
   padding-right: 5px;
 }
-#deleteprogbutton:hover,
-#saveProgDataViafile:hover {
+#deleteprogbutton:hover {
   background-image: var(--button-long-hover);
 }
 .important-text {
@@ -2394,38 +2416,36 @@ form input[type="button"] {
   background-image: var(--button-true);
 }
 #keypad {
-  width: 100%;
+  width: calc(100% - 100px);
+  height: 100px;
   position: relative;
-  overflow: hidden;
-  display: grid;
-  grid-template-columns: auto auto;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
 }
-#keypad .keypad:first-child {
-  overflow: hidden;
-  height: 97px;
-  width: 147px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-}
-#keypad .keypad:last-child {
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  overflow: hidden;
-  display: grid;
+#keypad .keypad{
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  position: relative;
 }
 #keypad .keypad div {
   margin: 2px;
-  pad: 2px;
   background-image: var(--key-bg);
   background-size: 100% 100%;
   background-position: center center;
+  width: calc(100% / 5 - 4px);
   color: var(--light-blue) !important;
   height: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-#keypad .keypad:last-child div {
-  width: 22px;
+#keypad .spclpad div  {
+  width: calc(100% / 2 - 4px);
 }
 #keypad .keypad div:hover {
   background-image: var(--key-bg-hover);
@@ -2675,25 +2695,22 @@ form input[type="button"] {
   background-image: var(--letter-9s);
 }
 #snakeColorLang {
-  width: calc(95% - 100px);
+  width: 100%;
   height: auto;
-  border-bottom: solid 2px var(--black-a);
   float: right;
 }
 input[type="color"] {
-  width: calc(90% - 100px);
+  width: 100%;
   padding: 0;
   margin: 0;
   border: none;
+  border: solid 2px var(--black-a);
 }
 input[type="color"]::-webkit-color-swatch-wrapper {
 	padding: 0;
 }
 input[type="color"]::-webkit-color-swatch {
 	border: none;
-}
-#subButton {
-  color: var(--black);
 }
 .out-controller {
   width: 100%;

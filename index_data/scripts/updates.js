@@ -1,23 +1,24 @@
 
-let basicVersion = "pre-2.0.0";
-let dateVersion = "[03/08/2026]";
-function markUpdateReaded() {
+let basicVersion = "smart-2.0.0";
+let dateVersionOld = "[24/11/2026]";
+let dateVersion = "[25/11/2026]";
+function markUpdateDate() {
   var modal = document.getElementById("updateModal");
   modal.style.display = "none";
-  localStorage.setItem("updateRead", basicVersion);
+  localStorage.setItem("updateDate", dateVersion);
 }
 
-let text0en = "Pre version 2.0.0, many changes and improvements." + "<br>";
-let text0ru = "Предварительная версия 2.0.0, множество изменений и улучшений." + "<br>";
-let text0he = "גרסה מוקדמת 2.0.0, רבים מהשינויים והשדרוגים." + "<br>";
+let text0en = "Some improvements." + "<br><hr>";
+let text0ru = "Некоторые улучшения." + "<br><hr>";
+let text0he = "כמה שיפורים." + "<br><hr>";
 
-let text1en = "" + "<br>";
-let text1ru = "" + "<br>";
-let text1he = "" + "<br>";
+let text1en = "<h3>" + dateVersionOld + "</h3><br>";
+let text1ru = "<h3>" + dateVersionOld + "</h3><br>";
+let text1he = "<h3>" + dateVersionOld + "</h3><br>";
 
-let text2en = "" + "<br>";
-let text2ru = "" + "<br>";
-let text2he = "" + "<br>";
+let text2en = "Released for Smartwatches." + "<br>";
+let text2ru = "Выпущено для умных часов." + "<br>";
+let text2he = "יצא לשעונים חכמים." + "<br>";
 
 let text3en = "";
 let text3ru = "";

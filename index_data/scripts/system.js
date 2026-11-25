@@ -273,7 +273,7 @@ const handleGameOver = () => {
 const changeDirection = e => {
   const win1 = document.getElementById("howToPlayModal");
   const win2 = document.getElementById("updateModal");
-//  const win3 = document.getElementById("");
+  const win3 = document.getElementById("audAcess");
   const win4 = document.getElementById("loseModal");
   const win5 = document.getElementById("alert");
   const win6 = document.getElementById("loading");
@@ -284,7 +284,7 @@ const changeDirection = e => {
   const win11 = document.getElementById("skinsCollections");
   if(win1.style.display === "none" &&
     win2.style.display === "none" &&
-//    win3.style.display === "none" &&
+    win3.style.display === "none" &&
     win4.style.display === "none" &&
     win5.style.display === "none" &&
     win6.style.display === "none" &&
@@ -369,7 +369,7 @@ const changeDirection = e => {
   }else
   if(win1.style.display === "block" &&
     win2.style.display === "none" &&
-//    win3.style.display === "none" &&
+    win3.style.display === "none" &&
     win4.style.display === "none" &&
     win5.style.display === "none" &&
     win6.style.display === "none" &&
@@ -382,7 +382,7 @@ const changeDirection = e => {
   }else
   if(win1.style.display === "none" &&
     win2.style.display === "block" &&
-//    win3.style.display === "none" &&
+    win3.style.display === "none" &&
     win4.style.display === "none" &&
     win5.style.display === "none" &&
     win6.style.display === "none" &&
@@ -395,7 +395,7 @@ const changeDirection = e => {
   }else
   if(win1.style.display === "none" &&
     win2.style.display === "none" &&
-//    win3.style.display === "block" &&
+    win3.style.display === "block" &&
     win4.style.display === "none" &&
     win5.style.display === "none" &&
     win6.style.display === "none" &&
@@ -408,7 +408,7 @@ const changeDirection = e => {
   }else
   if(win1.style.display === "none" &&
     win2.style.display === "none" &&
-//    win3.style.display === "none" &&
+    win3.style.display === "none" &&
     win4.style.display === "block" &&
     win5.style.display === "none" &&
     win6.style.display === "none" &&
@@ -421,7 +421,7 @@ const changeDirection = e => {
   }else
   if(win1.style.display === "none" &&
     win2.style.display === "none" &&
-//    win3.style.display === "none" &&
+    win3.style.display === "none" &&
     win4.style.display === "none" &&
     win5.style.display === "block" &&
     win6.style.display === "none" &&
@@ -434,7 +434,7 @@ const changeDirection = e => {
   }else
   if(win1.style.display === "none" &&
     win2.style.display === "none" &&
-//    win3.style.display === "none" &&
+    win3.style.display === "none" &&
     win4.style.display === "none" &&
     win5.style.display === "none" &&
     win6.style.display === "flex" &&
@@ -447,7 +447,7 @@ const changeDirection = e => {
   }else
   if(win1.style.display === "none" &&
     win2.style.display === "none" &&
-//    win3.style.display === "none" &&
+    win3.style.display === "none" &&
     win4.style.display === "none" &&
     win5.style.display === "none" &&
     win6.style.display === "none" &&
@@ -460,7 +460,7 @@ const changeDirection = e => {
   }else
   if(win1.style.display === "none" &&
     win2.style.display === "none" &&
-//    win3.style.display === "none" &&
+    win3.style.display === "none" &&
     win4.style.display === "none" &&
     win5.style.display === "none" &&
     win6.style.display === "none" &&
@@ -473,7 +473,7 @@ const changeDirection = e => {
   }else
   if(win1.style.display === "none" &&
     win2.style.display === "none" &&
-//    win3.style.display === "none" &&
+    win3.style.display === "none" &&
     win4.style.display === "none" &&
     win5.style.display === "none" &&
     win6.style.display === "none" &&
@@ -486,7 +486,7 @@ const changeDirection = e => {
   }else
   if(win1.style.display === "none" &&
     win2.style.display === "none" &&
-//    win3.style.display === "none" &&
+    win3.style.display === "none" &&
     win4.style.display === "none" &&
     win5.style.display === "none" &&
     win6.style.display === "none" &&
@@ -499,7 +499,7 @@ const changeDirection = e => {
   }else
   if(win1.style.display === "none" &&
     win2.style.display === "none" &&
-//    win3.style.display === "none" &&
+    win3.style.display === "none" &&
     win4.style.display === "none" &&
     win5.style.display === "none" &&
     win6.style.display === "none" &&

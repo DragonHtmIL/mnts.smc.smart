@@ -206,6 +206,7 @@
   --exit: url('https://raw.githubusercontent.com/DragonHtmIL/mnts.smc.org/main/index_data/textures/gui/exit.png');
   --up-note: url('https://raw.githubusercontent.com/DragonHtmIL/mnts.smc.org/main/index_data/textures/gui/up_note.png');
   --info-bars: url('../textures/gui/info_bars.png');
+  --acess-bg: var(--info-bars);
   --key-bg:  url('https://raw.githubusercontent.com/DragonHtmIL/mnts.smc.org/main/index_data/textures/gui/key_bg.png');
   --key-bg-hover:  url('https://raw.githubusercontent.com/DragonHtmIL/mnts.smc.org/main/index_data/textures/gui/key_bg_hover.png');
   --how-to-play:  url('https://raw.githubusercontent.com/DragonHtmIL/mnts.smc.org/main/index_data/textures/gui/htp_button.png');

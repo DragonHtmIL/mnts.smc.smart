@@ -654,5 +654,5 @@ function handleError() {
 };
 function toDisplayNone() {
   document.getElementById("loading").style.display = "none";
-  alertAccept();
+  audioAcessAccept();
 };

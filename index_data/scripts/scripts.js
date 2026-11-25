@@ -1256,45 +1256,36 @@ function goToScrollToIdElementMusicLang() {
   var element = document.getElementById("scrollToIdElementMusicLang");
   element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
 };
-function alertAccept() {
-  const alertBox = document.getElementById("alert");
-  const alertText = document.getElementById("alertText");
-  const alertCancel = document.getElementById("alertCenter");
-  const alertConfirm = document.getElementById("alertRight");
-  const alertNull = document.getElementById("alertLeft");
+function audioAcessAccept() {
+  const audAcessBox = document.getElementById("audAcess");
+  const audAcessText = document.getElementById("audAcessText");
+  const audAcessConfirm = document.getElementById("audAcessRight");
   const lang = localStorage.getItem("lang");
   const texts = {
     en: {
-      message: "Needed your accepting to load audio resources for disable audio delay.",
-      confirm: "Confirm",
-      loading: "Loading…",
-      cancelMsg: "How you clicked on it!?"
+      message: "Press to load audio resources for disable audio delay.",
+      confirm: "",
+      loading: "Loading…"
     },
     ru: {
-      message: "Необходимо ваше согласие на загрузку аудио ресурсов для отключения задержки аудио.",
-      confirm: "Подтвердить",
-      loading: "Загрузка…",
-      cancelMsg: "Как вы нажали на это!?"
+      message: "Нажмите чтобы загрузить аудио ресурсов для отключения задержки аудио.",
+      confirm: "",
+      loading: "Загрузка…"
     },
     he: {
-      message: "נדרשת הסכמתך לטעינת משאבי אודיו לצורך השבתת עיכוב של האודיו.",
-      confirm: "אישור",
+      message: "לחץ כדי לטעון משאבי אודיו לצורך השבתת עיכוב של האודיו.",
+      confirm: "",
       loading: "טוען…",
-      cancelMsg: "איך לחצתם על זה!?",
       rtl: true
     }
   };
   const t = texts[lang] || texts.en;
-  alertBox.style.display = "block";
-  alertText.textContent = t.message;
-  alertText.style.direction = t.rtl ? "rtl" : "ltr";
-  alertConfirm.value = t.confirm;
-  alertCancel.style.display = "none";
-  alertCancel.value = "...";
-  alertNull.style.display = "none";
-  alertCancel.onclick = () => alert(t.cancelMsg);
-  alertConfirm.onclick = () => {
-    alertConfirm.style.display = "none";
+  audAcessBox.style.display = "flex";
+  audAcessText.textContent = t.message;
+  audAcessText.style.direction = t.rtl ? "rtl" : "ltr";
+  audAcessConfirm.value = t.confirm;
+  audAcessConfirm.onclick = () => {
+    audAcessConfirm.style.display = "none";
     defaultClickSound();
     musicBackground();
     loadMusicPlay();
@@ -1309,12 +1300,11 @@ function alertAccept() {
       "itemCollected",
       "closeModalSound"
     ].forEach(id => document.getElementById(id)?.play());
-    alertText.textContent = t.loading;
+    audAcessText.textContent = t.loading;
     setTimeout(() => {
-      alertBox.style.display = "none";
-      alertCancel.style.display = "inline";
+      audAcessBox.style.display = "none";
       document.getElementById("updateModal").style.display =
-        localStorage.getItem("updateRead") === basicVersion
+        localStorage.getItem("updateDate") === dateVersion
           ? "none"
           : "block";
     }, 1000);
@@ -2752,242 +2742,6 @@ function markKeysActivedz() {
     key.className = "keyOboard";
   }
 };
-function saveProgressViaFile() {
-  const text = document.getElementById("textarea");
-  text.value = "// this file is load saved data that can be load the data\n";
-  text.value += "// [!] save data before delete site settings or any of loseing way of data\n";
-  text.value += "// [?] this file like an tranfer data\n";
-  text.value += "function loadDataSaved() {\n";
-  text.value += "localStorage.setItem('musicbg','" + localStorage.getItem('musicbg') + "');\n";
-  text.value += "localStorage.setItem('musicPlay','" + localStorage.getItem('musicPlay') + "');\n";
-  text.value += "localStorage.setItem('musicvolumedata','" + localStorage.getItem('musicvolumedata') + "');\n";
-  text.value += "localStorage.setItem('audioPlay','" + localStorage.getItem('audioPlay') + "');\n";
-  text.value += "localStorage.setItem('sfxvolumedata','" + localStorage.getItem('sfxvolumedata') + "');\n";
-  text.value += "localStorage.setItem('difficulty','" + localStorage.getItem('difficulty') + "');\n";
-  text.value += "localStorage.setItem('foodStyle','" + localStorage.getItem('foodStyle') + "');\n";
-  text.value += "localStorage.setItem('boardStyle','" + localStorage.getItem('boardStyle') + "');\n";
-  text.value += "localStorage.setItem('lang','" + localStorage.getItem('lang') + "');\n";
-  text.value += "localStorage.setItem('movementbg','" + localStorage.getItem('movementbg') + "');\n";
-  text.value += "localStorage.setItem('loadingStyle','" + localStorage.getItem('loadingStyle') + "');\n";
-  text.value += "localStorage.setItem('link-open','" + localStorage.getItem('link-open') + "');\n";
-  text.value += "localStorage.setItem('ambients','" + localStorage.getItem('ambients') + "');\n";
-  text.value += "localStorage.setItem('snakeColor','" + localStorage.getItem('snakeColor') + "');\n";
-  text.value += "localStorage.setItem('snakeLetter','" + localStorage.getItem('snakeLetter') + "');\n";
-  text.value += "localStorage.setItem('high-score','" + localStorage.getItem('high-score') + "');\n";
-  text.value += "localStorage.setItem('meawTokenStorage','" + localStorage.getItem('meawTokenStorage') + "');\n";
-  text.value += "localStorage.setItem('goldStorage','" + localStorage.getItem('goldStorage') + "');\n";
-  text.value += "localStorage.setItem('alphaCoinStorage','" + localStorage.getItem('alphaCoinStorage') + "');\n";
-  text.value += "localStorage.setItem('crystalStorage','" + localStorage.getItem('crystalStorage') + "');\n";
-  text.value += "localStorage.setItem('ticketStorage','" + localStorage.getItem('ticketStorage') + "');\n";
-  text.value += "localStorage.setItem('ticketChromaticStorage','" + localStorage.getItem('ticketChromaticStorage') + "');\n";
-  text.value += "localStorage.setItem('ticketPremiumStorage','" + localStorage.getItem('ticketPremiumStorage') + "');\n";
-  text.value += "localStorage.setItem('ticketPremium2Storage','" + localStorage.getItem('ticketPremium2Storage') + "');\n";
-  text.value += "localStorage.setItem('virtualTokenStorage','" + localStorage.getItem('virtualTokenStorage') + "');\n";
-  text.value += "localStorage.setItem('food000Storage','" + localStorage.getItem('food000Storage') + "');\n";
-  text.value += "localStorage.setItem('food001Storage','" + localStorage.getItem('food001Storage') + "');\n";
-  text.value += "localStorage.setItem('food002Storage','" + localStorage.getItem('food002Storage') + "');\n";
-  text.value += "localStorage.setItem('food003Storage','" + localStorage.getItem('food003Storage') + "');\n";
-  text.value += "localStorage.setItem('food004Storage','" + localStorage.getItem('food004Storage') + "');\n";
-  text.value += "localStorage.setItem('food005Storage','" + localStorage.getItem('food005Storage') + "');\n";
-  text.value += "localStorage.setItem('food006Storage','" + localStorage.getItem('food006Storage') + "');\n";
-  text.value += "localStorage.setItem('food007Storage','" + localStorage.getItem('food007Storage') + "');\n";
-  text.value += "localStorage.setItem('food008Storage','" + localStorage.getItem('food008Storage') + "');\n";
-  text.value += "localStorage.setItem('food009Storage','" + localStorage.getItem('food009Storage') + "');\n";
-  text.value += "localStorage.setItem('food010Storage','" + localStorage.getItem('food010Storage') + "');\n";
-  text.value += "localStorage.setItem('food011Storage','" + localStorage.getItem('food011Storage') + "');\n";
-  text.value += "localStorage.setItem('food012Storage','" + localStorage.getItem('food012Storage') + "');\n";
-  text.value += "localStorage.setItem('food013Storage','" + localStorage.getItem('food013Storage') + "');\n";
-  text.value += "localStorage.setItem('food014Storage','" + localStorage.getItem('food014Storage') + "');\n";
-  text.value += "localStorage.setItem('food015Storage','" + localStorage.getItem('food015Storage') + "');\n";
-  text.value += "localStorage.setItem('food016Storage','" + localStorage.getItem('food016Storage') + "');\n";
-  text.value += "localStorage.setItem('food017Storage','" + localStorage.getItem('food017Storage') + "');\n";
-  text.value += "localStorage.setItem('food018Storage','" + localStorage.getItem('food018Storage') + "');\n";
-  text.value += "localStorage.setItem('food019Storage','" + localStorage.getItem('food019Storage') + "');\n";
-  text.value += "localStorage.setItem('food020Storage','" + localStorage.getItem('food020Storage') + "');\n";
-  text.value += "localStorage.setItem('food021Storage','" + localStorage.getItem('food021Storage') + "');\n";
-  text.value += "localStorage.setItem('food022Storage','" + localStorage.getItem('food022Storage') + "');\n";
-  text.value += "localStorage.setItem('food023Storage','" + localStorage.getItem('food023Storage') + "');\n";
-  text.value += "localStorage.setItem('food024Storage','" + localStorage.getItem('food024Storage') + "');\n";
-  text.value += "localStorage.setItem('food025Storage','" + localStorage.getItem('food025Storage') + "');\n";
-  text.value += "localStorage.setItem('food026Storage','" + localStorage.getItem('food026Storage') + "');\n";
-  text.value += "localStorage.setItem('food027Storage','" + localStorage.getItem('food027Storage') + "');\n";
-  text.value += "localStorage.setItem('food028Storage','" + localStorage.getItem('food028Storage') + "');\n";
-  text.value += "localStorage.setItem('food029Storage','" + localStorage.getItem('food029Storage') + "');\n";
-  text.value += "localStorage.setItem('food030Storage','" + localStorage.getItem('food030Storage') + "');\n";
-  text.value += "localStorage.setItem('food031Storage','" + localStorage.getItem('food031Storage') + "');\n";
-  text.value += "localStorage.setItem('food032Storage','" + localStorage.getItem('food032Storage') + "');\n";
-  text.value += "localStorage.setItem('food033Storage','" + localStorage.getItem('food033Storage') + "');\n";
-  text.value += "localStorage.setItem('food034Storage','" + localStorage.getItem('food034Storage') + "');\n";
-  text.value += "localStorage.setItem('food035Storage','" + localStorage.getItem('food035Storage') + "');\n";
-  text.value += "localStorage.setItem('food036Storage','" + localStorage.getItem('food036Storage') + "');\n";
-  text.value += "localStorage.setItem('food037Storage','" + localStorage.getItem('food037Storage') + "');\n";
-  text.value += "localStorage.setItem('food038Storage','" + localStorage.getItem('food038Storage') + "');\n";
-  text.value += "localStorage.setItem('food039Storage','" + localStorage.getItem('food039Storage') + "');\n";
-  text.value += "localStorage.setItem('food040Storage','" + localStorage.getItem('food040Storage') + "');\n";
-  text.value += "localStorage.setItem('food041Storage','" + localStorage.getItem('food041Storage') + "');\n";
-  text.value += "localStorage.setItem('food042Storage','" + localStorage.getItem('food042Storage') + "');\n";
-  text.value += "localStorage.setItem('food043Storage','" + localStorage.getItem('food043Storage') + "');\n";
-  text.value += "localStorage.setItem('food044Storage','" + localStorage.getItem('food044Storage') + "');\n";
-  text.value += "localStorage.setItem('food045Storage','" + localStorage.getItem('food045Storage') + "');\n";
-  text.value += "localStorage.setItem('food046Storage','" + localStorage.getItem('food046Storage') + "');\n";
-  text.value += "localStorage.setItem('food047Storage','" + localStorage.getItem('food047Storage') + "');\n";
-  text.value += "localStorage.setItem('food048Storage','" + localStorage.getItem('food048Storage') + "');\n";
-  text.value += "localStorage.setItem('food049Storage','" + localStorage.getItem('food049Storage') + "');\n";
-  text.value += "localStorage.setItem('food050Storage','" + localStorage.getItem('food050Storage') + "');\n";
-  text.value += "localStorage.setItem('food051Storage','" + localStorage.getItem('food051Storage') + "');\n";
-  text.value += "localStorage.setItem('food052Storage','" + localStorage.getItem('food052Storage') + "');\n";
-  text.value += "localStorage.setItem('food053Storage','" + localStorage.getItem('food053Storage') + "');\n";
-  text.value += "localStorage.setItem('food054Storage','" + localStorage.getItem('food054Storage') + "');\n";
-  text.value += "localStorage.setItem('food055Storage','" + localStorage.getItem('food055Storage') + "');\n";
-  text.value += "localStorage.setItem('food056Storage','" + localStorage.getItem('food056Storage') + "');\n";
-  text.value += "localStorage.setItem('food057Storage','" + localStorage.getItem('food057Storage') + "');\n";
-  text.value += "localStorage.setItem('food058Storage','" + localStorage.getItem('food058Storage') + "');\n";
-  text.value += "localStorage.setItem('food059Storage','" + localStorage.getItem('food059Storage') + "');\n";
-  text.value += "localStorage.setItem('food060Storage','" + localStorage.getItem('food060Storage') + "');\n";
-  text.value += "localStorage.setItem('food061Storage','" + localStorage.getItem('food061Storage') + "');\n";
-  text.value += "localStorage.setItem('food062Storage','" + localStorage.getItem('food062Storage') + "');\n";
-  text.value += "localStorage.setItem('food063Storage','" + localStorage.getItem('food063Storage') + "');\n";
-  text.value += "localStorage.setItem('food064Storage','" + localStorage.getItem('food064Storage') + "');\n";
-  text.value += "localStorage.setItem('food065Storage','" + localStorage.getItem('food065Storage') + "');\n";
-  text.value += "localStorage.setItem('food066Storage','" + localStorage.getItem('food066Storage') + "');\n";
-  text.value += "localStorage.setItem('food067Storage','" + localStorage.getItem('food067Storage') + "');\n";
-  text.value += "localStorage.setItem('food068Storage','" + localStorage.getItem('food068Storage') + "');\n";
-  text.value += "localStorage.setItem('food069Storage','" + localStorage.getItem('food069Storage') + "');\n";
-  text.value += "localStorage.setItem('food070Storage','" + localStorage.getItem('food070Storage') + "');\n";
-  text.value += "localStorage.setItem('food071Storage','" + localStorage.getItem('food071Storage') + "');\n";
-  text.value += "localStorage.setItem('food072Storage','" + localStorage.getItem('food072Storage') + "');\n";
-  text.value += "localStorage.setItem('food073Storage','" + localStorage.getItem('food073Storage') + "');\n";
-  text.value += "localStorage.setItem('food074Storage','" + localStorage.getItem('food074Storage') + "');\n";
-  text.value += "localStorage.setItem('food075Storage','" + localStorage.getItem('food075Storage') + "');\n";
-  text.value += "localStorage.setItem('food076Storage','" + localStorage.getItem('food076Storage') + "');\n";
-  text.value += "localStorage.setItem('food077Storage','" + localStorage.getItem('food077Storage') + "');\n";
-  text.value += "localStorage.setItem('reapitfood','" + localStorage.getItem('reapitfood') + "');\n";
-  text.value += "localStorage.setItem('updateRead','" + localStorage.getItem('updateRead') + "');\n";
-  text.value += "localStorage.setItem('snakePosY','" + localStorage.getItem('snakePosY') + "');\n";
-  text.value += "localStorage.setItem('snakePosX','" + localStorage.getItem('snakePosX') + "');\n";
-  text.value += "localStorage.setItem('snakePosType','" + localStorage.getItem('snakePosType') + "');\n";
-  text.value += "localStorage.setItem('Akashic','" + localStorage.getItem('Akashic') + "');\n";
-  text.value += "localStorage.setItem('Alborada','" + localStorage.getItem('Alborada') + "');\n";
-  text.value += "localStorage.setItem('Andromeda','" + localStorage.getItem('Andromeda') + "');\n";
-  text.value += "localStorage.setItem('Arthur','" + localStorage.getItem('Arthur') + "');\n";
-  text.value += "localStorage.setItem('Aurora','" + localStorage.getItem('Aurora') + "');\n";
-  text.value += "localStorage.setItem('Boltus','" + localStorage.getItem('Boltus') + "');\n";
-  text.value += "localStorage.setItem('Caramel','" + localStorage.getItem('Caramel') + "');\n";
-  text.value += "localStorage.setItem('Death Knell','" + localStorage.getItem('Death Knell') + "');\n";
-  text.value += "localStorage.setItem('Doomlight','" + localStorage.getItem('Doomlight') + "');\n";
-  text.value += "localStorage.setItem('Dreadwolf','" + localStorage.getItem('Dreadwolf') + "');\n";
-  text.value += "localStorage.setItem('Firefox','" + localStorage.getItem('Firefox') + "');\n";
-  text.value += "localStorage.setItem('Firestar','" + localStorage.getItem('Firestar') + "');\n";
-  text.value += "localStorage.setItem('Flamenco','" + localStorage.getItem('Flamenco') + "');\n";
-  text.value += "localStorage.setItem('Gabriel','" + localStorage.getItem('Gabriel') + "');\n";
-  text.value += "localStorage.setItem('Gaia','" + localStorage.getItem('Gaia') + "');\n";
-  text.value += "localStorage.setItem('Guerilla Hunter','" + localStorage.getItem('Guerilla Hunter') + "');\n";
-  text.value += "localStorage.setItem('Hotsteel','" + localStorage.getItem('Hotsteel') + "');\n";
-  text.value += "localStorage.setItem('Hurricane','" + localStorage.getItem('Hurricane') + "');\n";
-  text.value += "localStorage.setItem('JOJO','" + localStorage.getItem('JOJO') + "');\n";
-  text.value += "localStorage.setItem('Lancelot','" + localStorage.getItem('Lancelot') + "');\n";
-  text.value += "localStorage.setItem('Michael','" + localStorage.getItem('Michael') + "');\n";
-  text.value += "localStorage.setItem('Moon Rabbit','" + localStorage.getItem('Moon Rabbit') + "');\n";
-  text.value += "localStorage.setItem('Nebula','" + localStorage.getItem('Nebula') + "');\n";
-  text.value += "localStorage.setItem('Neutron Star','" + localStorage.getItem('Neutron Star') + "');\n";
-  text.value += "localStorage.setItem('Northern Knight','" + localStorage.getItem('Northern Knight') + "');\n";
-  text.value += "localStorage.setItem('Pulsar','" + localStorage.getItem('Pulsar') + "');\n";
-  text.value += "localStorage.setItem('Ranger','" + localStorage.getItem('Ranger') + "');\n";
-  text.value += "localStorage.setItem('Raven','" + localStorage.getItem('Raven') + "');\n";
-  text.value += "localStorage.setItem('Shiranui','" + localStorage.getItem('Shiranui') + "');\n";
-  text.value += "localStorage.setItem('Skyfall','" + localStorage.getItem('Skyfall') + "');\n";
-  text.value += "localStorage.setItem('Skyfire','" + localStorage.getItem('Skyfire') + "');\n";
-  text.value += "localStorage.setItem('Skylark','" + localStorage.getItem('Skylark') + "');\n";
-  text.value += "localStorage.setItem('Snow Mirage','" + localStorage.getItem('Snow Mirage') + "');\n";
-  text.value += "localStorage.setItem('Tempest','" + localStorage.getItem('Tempest') + "');\n";
-  text.value += "localStorage.setItem('Trio of Enders','" + localStorage.getItem('Trio of Enders') + "');\n";
-  text.value += "localStorage.setItem('Twilight','" + localStorage.getItem('Twilight') + "');\n";
-  text.value += "localStorage.setItem('Ventorus','" + localStorage.getItem('Ventorus') + "');\n";
-  text.value += "localStorage.setItem('Aya','" + localStorage.getItem('Aya') + "');\n";
-  text.value += "localStorage.setItem('Belladonna','" + localStorage.getItem('Belladonna') + "');\n";
-  text.value += "localStorage.setItem('Cyrus','" + localStorage.getItem('Cyrus') + "');\n";
-  text.value += "localStorage.setItem('Fran','" + localStorage.getItem('Fran') + "');\n";
-  text.value += "localStorage.setItem('Furanku','" + localStorage.getItem('Furanku') + "');\n";
-  text.value += "localStorage.setItem('Iori','" + localStorage.getItem('Iori') + "');\n";
-  text.value += "localStorage.setItem('Ivan','" + localStorage.getItem('Ivan') + "');\n";
-  text.value += "localStorage.setItem('Jaka','" + localStorage.getItem('Jaka') + "');\n";
-  text.value += "localStorage.setItem('Jiu Chong','" + localStorage.getItem('Jiu Chong') + "');\n";
-  text.value += "localStorage.setItem('Joanna','" + localStorage.getItem('Joanna') + "');\n";
-  text.value += "localStorage.setItem('Kije','" + localStorage.getItem('Kije') + "');\n";
-  text.value += "localStorage.setItem('Kikina','" + localStorage.getItem('Kikina') + "');\n";
-  text.value += "localStorage.setItem('Kizuna Ai','" + localStorage.getItem('Kizuna Ai') + "');\n";
-  text.value += "localStorage.setItem('Lillian','" + localStorage.getItem('Lillian') + "');\n";
-  text.value += "localStorage.setItem('Lysa','" + localStorage.getItem('Lysa') + "');\n";
-  text.value += "localStorage.setItem('Matilda','" + localStorage.getItem('Matilda') + "');\n";
-  text.value += "localStorage.setItem('Mia','" + localStorage.getItem('Mia') + "');\n";
-  text.value += "localStorage.setItem('Mila','" + localStorage.getItem('Mila') + "');\n";
-  text.value += "localStorage.setItem('Mobius','" + localStorage.getItem('Mobius') + "');\n";
-  text.value += "localStorage.setItem('Nighthawk','" + localStorage.getItem('Nighthawk') + "');\n";
-  text.value += "localStorage.setItem('Ning','" + localStorage.getItem('Ning') + "');\n";
-  text.value += "localStorage.setItem('Norma','" + localStorage.getItem('Norma') + "');\n";
-  text.value += "localStorage.setItem('Opal','" + localStorage.getItem('Opal') + "');\n";
-  text.value += "localStorage.setItem('Purity','" + localStorage.getItem('Purity') + "');\n";
-  text.value += "localStorage.setItem('RED','" + localStorage.getItem('RED') + "');\n";
-  text.value += "localStorage.setItem('Riko','" + localStorage.getItem('Riko') + "');\n";
-  text.value += "localStorage.setItem('Rom','" + localStorage.getItem('Rom') + "');\n";
-  text.value += "localStorage.setItem('Serena','" + localStorage.getItem('Serena') + "');\n";
-  text.value += "localStorage.setItem('Shin','" + localStorage.getItem('Shin') + "');\n";
-  text.value += "localStorage.setItem('Silver Deacon','" + localStorage.getItem('Silver Deacon') + "');\n";
-  text.value += "localStorage.setItem('Tarantula','" + localStorage.getItem('Tarantula') + "');\n";
-  text.value += "localStorage.setItem('Vanessa','" + localStorage.getItem('Vanessa') + "');\n";
-  text.value += "localStorage.setItem('Villar','" + localStorage.getItem('Villar') + "');\n";
-  text.value += "localStorage.setItem('Vita','" + localStorage.getItem('Vita') + "');\n";
-  text.value += "localStorage.setItem('Yang','" + localStorage.getItem('Yang') + "');\n";
-  text.value += "localStorage.setItem('Yulia','" + localStorage.getItem('Yulia') + "');\n";
-  text.value += "localStorage.setItem('Yutong','" + localStorage.getItem('Yutong') + "');\n";
-  text.value += "localStorage.setItem('Zoe','" + localStorage.getItem('Zoe') + "');\n";
-  text.value += "localStorage.setItem('Shadow Watcher','" + localStorage.getItem('Shadow Watcher') + "');\n";
-  text.value += "localStorage.setItem('Yellow Dwarf','" + localStorage.getItem('Yellow Dwarf') + "');\n";
-  text.value += "localStorage.setItem('userState','" + localStorage.getItem('userState') + "');\n";
-  text.value += "localStorage.setItem('nickname','" + localStorage.getItem('nickname') + "');\n";
-  text.value += "window.location.reload();\n";
-  text.value += "}";
-  let valueinput = text.value;
-  let blobdtMIME = new Blob([valueinput], { type: "text/plain" });
-  let url = URL.createObjectURL(blobdtMIME);
-  let anele = document.createElement("a");
-  anele.setAttribute("download", "SnakeMechaCollector-Save.js");
-  anele.href = url;
-  anele.click();
-};
-document.addEventListener('DOMContentLoaded', () => {
-  const fileInput = document.getElementById('dataLocalUpload');
-  const scriptContainer = document.getElementById('scriptContainer');
-  fileInput.addEventListener('change', handleFileSelect);
-  function handleFileSelect(event) {
-    const file = event.target.files[0];
-    if (file && file.type === 'text/javascript') {
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        const jsContent = event.target.result;
-        createAndAppendScript(jsContent);
-      };
-      reader.onerror = (error) => {
-        console.error('Error reading the file:', error);
-      };
-      reader.readAsText(file);
-    } else if (file) {
-      alert('Please select a JavaScript (.js) file.');
-      fileInput.value = '';
-    }
-  }
-  function createAndAppendScript(jsContent) {
-    const scriptElement = document.createElement('script');
-    scriptElement.type = 'text/javascript';
-    scriptElement.textContent = jsContent;
-    if (scriptContainer) {
-      scriptContainer.appendChild(scriptElement);
-    } else {
-      document.body.appendChild(scriptElement);
-    }
-    console.log('JavaScript file loaded and script tag created.');
-  }
-});
 function createClicksEffect() {
   if(document.getElementById("loading").style.display === "none") {
     const main = document.body;
